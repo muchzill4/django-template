@@ -8,3 +8,4 @@ __pycache__/
 # Static
 static/node_modules/
 static/dist/
+collected-static/

@@ -24,6 +24,10 @@ def getenv_bool(key: str) -> bool:
     return os.getenv(key) in ("True", "true")
 
 
+# http://whitenoise.evans.io/en/stable/django.html
+enable_whitenoise = getenv_bool("ENABLE_WHITENOISE")
+
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -37,7 +41,7 @@ SECRET_KEY = os.environ["SECRET_KEY"]
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = getenv_bool("DEBUG")
 
-ALLOWED_HOSTS: list[str] = []
+ALLOWED_HOSTS = ["*"]
 
 
 # Application definition
@@ -51,6 +55,8 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     "project_name",
 ]
+if enable_whitenoise:
+    INSTALLED_APPS.insert(0, "whitenoise.runserver_nostatic")
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
@@ -61,6 +67,8 @@ MIDDLEWARE = [
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
 ]
+if enable_whitenoise:
+    MIDDLEWARE.insert(1, "whitenoise.middleware.WhiteNoiseMiddleware")
 
 ROOT_URLCONF = "config.urls"
 
@@ -131,8 +139,13 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
-STATIC_URL = "/static/"
-
 STATICFILES_DIRS = [
     BASE_DIR / "static" / "dist",
 ]
+
+STATIC_URL = "/static/"
+
+STATIC_ROOT = BASE_DIR / "collected-static"
+
+if enable_whitenoise:
+    STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
