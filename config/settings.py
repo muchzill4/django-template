@@ -14,6 +14,7 @@ import os
 from pathlib import Path
 
 import dj_database_url
+import django_cache_url
 from dotenv import load_dotenv
 
 load_dotenv()
@@ -85,6 +86,12 @@ WSGI_APPLICATION = "config.wsgi.application"
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
 DATABASES = {"default": dj_database_url.config()}
+
+
+# Caches
+# https://docs.djangoproject.com/en/3.1/ref/settings/#caches
+
+CACHES = {"default": django_cache_url.config()}
 
 
 # Password validation
