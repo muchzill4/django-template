@@ -4,3 +4,7 @@ __pycache__/
 
 # Dotenv
 .env
+
+# Static
+static/node_modules/
+static/dist/

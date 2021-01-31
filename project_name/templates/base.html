@@ -1,0 +1,17 @@
+{% load static %}
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>project_name</title>
+    <link href="{% static "css/base.css" %}" rel="stylesheet">
+    {% block head %}{% endblock %}
+  </head>
+  <body>
+    {% block content %}{% endblock %}
+    {% block scripts %}
+    {% endblock %}
+  </body>
+</html>

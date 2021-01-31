@@ -1,7 +1,7 @@
 .PHONY: bootstrap
 bootstrap:
 	pip install -r requirements-dev.txt
-	npm install
+	npm --prefix static install
 	docker-compose -f docker/docker-compose.yml up -d
 	./manage.py migrate
 	./manage.py createcachetable
@@ -14,3 +14,11 @@ run-app:
 .PHONY: run-services
 run-services:
 	docker-compose -f docker/docker-compose.yml up
+
+.PHONY: build-assets
+build-assets:
+	npm --prefix static run build
+
+.PHONY: watch-assets
+watch-assets:
+	npm --prefix static run watch
