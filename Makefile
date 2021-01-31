@@ -1,4 +1,12 @@
 .PHONY: bootstrap
 bootstrap:
 	pip install -r requirements-dev.txt -r requirements.txt
-	npm --prefix static/ install
+	npm install
+
+.PHONY: run-app
+run-app:
+	./manage.py runserver
+
+.PHONY: run-services
+run-services:
+	docker-compose up
