@@ -1,6 +1,6 @@
 .PHONY: bootstrap
 bootstrap:
-	pip install -r requirements-dev.txt -r requirements.txt
+	pip install -r requirements-dev.txt
 	npm install
 
 .PHONY: run-app
