@@ -9,4 +9,4 @@ run-app:
 
 .PHONY: run-services
 run-services:
-	docker-compose up
+	docker-compose -f docker/docker-compose.yml up
