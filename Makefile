@@ -6,6 +6,7 @@ bootstrap:
 	./manage.py migrate
 	./manage.py createcachetable
 	docker-compose -f docker/docker-compose.yml stop
+	cp .env.example .env
 
 .PHONY: run-app
 run-app:
