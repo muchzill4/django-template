@@ -24,7 +24,9 @@ def getenv_bool(key: str) -> bool:
     return os.getenv(key) in ("True", "true")
 
 
+# Whitenoise
 # http://whitenoise.evans.io/en/stable/django.html
+
 enable_whitenoise = getenv_bool("ENABLE_WHITENOISE")
 
 
