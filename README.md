@@ -2,19 +2,10 @@
 
 ## Usage
 
-    django-admin startproject --template=~/Dev/personal/django-template --name .env,docker-compose.yml project_name
+1. Init project using `django-admin`
 
-## Boostrapping the app
+        django-admin startproject --template=~/Dev/personal/django-template --name .env,docker-compose.yml project_name
 
-1.  Install requirements
+2. Run boostrap
 
         make boostrap
-
-1.  Run services
-
-        make run-services
-
-1.  Run migrations
-
-    ./manage.py migrate
-    ./manage.py createcachetable
