@@ -27,7 +27,11 @@ isort==5.7.0
 mccabe==0.6.1
     # via flake8
 mypy-extensions==0.4.3
-    # via black
+    # via
+    #   black
+    #   mypy
+mypy==0.800
+    # via -r requirements-dev.in
 nodeenv==1.5.0
     # via pre-commit
 pathspec==0.8.1
@@ -49,8 +53,12 @@ toml==0.10.2
     #   black
     #   pre-commit
 typed-ast==1.4.2
-    # via black
+    # via
+    #   black
+    #   mypy
 typing-extensions==3.7.4.3
-    # via black
+    # via
+    #   black
+    #   mypy
 virtualenv==20.4.1
     # via pre-commit
