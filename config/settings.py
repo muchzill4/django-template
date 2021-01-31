@@ -151,3 +151,10 @@ STATIC_ROOT = BASE_DIR / "collected-static"
 
 if enable_whitenoise:
     STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
+
+
+# Force https
+# https://docs.djangoproject.com/en/3.1/ref/settings/#secure-ssl-redirect
+
+if getenv_bool("FORCE_HTTPS"):
+    SECURE_SSL_REDIRECT = True
