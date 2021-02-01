@@ -1,5 +1,5 @@
 """
-ASGI config for project_name project.
+ASGI config for {{ project_name }} project.
 
 It exposes the ASGI callable as a module-level variable named ``application``.
 
