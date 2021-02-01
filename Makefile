@@ -16,7 +16,7 @@ run-app:
 
 .PHONY: run-services
 run-services:
-	docker-compose -f docker/docker-compose.yml up
+	docker-compose up
 
 .PHONY: build-assets
 build-assets:
