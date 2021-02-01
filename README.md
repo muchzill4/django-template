@@ -29,7 +29,7 @@ Simple, extensible [Django](https://www.djangoproject.com) project template.
 1. **Init django project using this repo as a template**
 
 ```sh
-django-admin startproject --template=https://github.com/muchzill4/django-template/archive/master.zip -e py,yml,md -n .env {{ project_name }}
+django-admin startproject --template=https://github.com/muchzill4/django-template/archive/master.zip -e py,yml,md -n .env.example {{ project_name }}
 ```
 
 1. **Boostrap newly initialised project**
