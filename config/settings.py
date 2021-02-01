@@ -57,7 +57,7 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
-    "{{ project_name }}",
+    "{{ project_name }}.apps.Config",
 ]
 if enable_whitenoise:
     INSTALLED_APPS.insert(0, "whitenoise.runserver_nostatic")
