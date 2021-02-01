@@ -7,7 +7,7 @@ bootstrap:
 	./manage.py migrate
 	./manage.py createcachetable
 	docker-compose stop
-	git init && git add . && git commit -m "Initial commit"
+	git status || (git init && git add . && git commit -m "Initial commit")
 	pre-commit install
 
 .PHONY: run-app
