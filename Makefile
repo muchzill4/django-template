@@ -19,6 +19,7 @@ run-services:
 .PHONY: build-assets
 build-assets:
 	npm --prefix static run build
+	./manage.py collectstatic
 
 .PHONY: watch-assets
 watch-assets:
