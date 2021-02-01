@@ -3,10 +3,10 @@ bootstrap:
 	cp .env.example .env
 	pip install -r requirements-dev.txt
 	npm --prefix static install
-	docker-compose -f docker/docker-compose.yml up -d
+	docker-compose up -d
 	./manage.py migrate
 	./manage.py createcachetable
-	docker-compose -f docker/docker-compose.yml stop
+	docker-compose stop
 	git init && git add . && git commit -m "Initial commit"
 	pre-commit install
 
