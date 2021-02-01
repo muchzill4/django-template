@@ -4,3 +4,4 @@ django-cache-url==3.1.2
 psycopg2==2.8.6
 python-dotenv==0.15.0
 whitenoise[brotli]==5.2.0
+sentry-sdk==0.19.5

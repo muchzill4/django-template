@@ -15,7 +15,9 @@ from pathlib import Path
 
 import dj_database_url
 import django_cache_url
+import sentry_sdk
 from dotenv import load_dotenv
+from sentry_sdk.integrations.django import DjangoIntegration
 
 load_dotenv()
 
@@ -158,3 +160,17 @@ if enable_whitenoise:
 
 if getenv_bool("FORCE_HTTPS"):
     SECURE_SSL_REDIRECT = True
+
+
+# Sentry
+# https://docs.sentry.io/platforms/python/guides/django/
+
+if sentry_dsn := os.getenv("SENTRY_DSN"):
+    sentry_sdk.init(
+        dsn=sentry_dsn,
+        integrations=[DjangoIntegration()],
+        traces_sample_rate=1.0,
+        # If you wish to associate users to errors (assuming you are using
+        # django.contrib.auth) you may enable sending PII data.
+        send_default_pii=True,
+    )
