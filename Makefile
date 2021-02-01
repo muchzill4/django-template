@@ -7,6 +7,8 @@ bootstrap:
 	./manage.py createcachetable
 	docker-compose -f docker/docker-compose.yml stop
 	cp .env.example .env
+	git init
+	pre-commit install
 
 .PHONY: run-app
 run-app:
@@ -18,7 +20,7 @@ run-services:
 
 .PHONY: build-assets
 build-assets:
-	npm --prefix static run build
+	NODE_ENV=production npm --prefix static run build
 	./manage.py collectstatic
 
 .PHONY: watch-assets
