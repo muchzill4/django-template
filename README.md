@@ -41,9 +41,9 @@ make boostrap
 
 This command will:
 
+- copy sample dotenv settings to `.env`
 - install development environment requirements for both python and node
 - perform initial database setup
-- copy sample dotenv settings to `.env`
 - initialise a git repo and perform initial commit
 - setup pre-commit hooks
 
