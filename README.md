@@ -24,7 +24,7 @@ Simple, extensible [Django](https://www.djangoproject.com) project template.
   - [TailwindCSS](http://tailwindcss.com)
 - [Sentry](http://sentry.io)
 
-## Starting new project
+## Starting a new project
 
 1. **Init django project using this repo as a template**
 
