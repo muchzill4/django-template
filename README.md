@@ -34,8 +34,9 @@ django-admin startproject --template=https://github.com/muchzill4/django-templat
 
 1. **Boostrap newly initialised project**
 
+Use [virtual environment](https://docs.python.org/3/tutorial/venv.html) to avoid polluting your global python installation.
+
 ```sh
-cd {{ project_name }}
 make boostrap
 ```
 
@@ -51,9 +52,8 @@ This command will:
 
 | command           | wtf                                                      |
 | ----------------- | -------------------------------------------------------- |
+| make bootstrap    | runs initial setup of the project                        |
 | make run-services | brings up Docker stack (out of the box, only PostgreSQL) |
 | make run-app      | runs Django server                                       |
 | make watch-assets | watches static files for change and recompiles           |
 | make build-assets | performs production compile and collect of assets        |
-
-For more, look at each of installed components docs.
