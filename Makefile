@@ -1,6 +1,6 @@
 .PHONY: bootstrap
 bootstrap:
-	cp .env.example .env
+	test -f .env || cp .env.example .env
 	pip install -r requirements-dev.txt
 	npm --prefix static install
 	docker-compose up -d
