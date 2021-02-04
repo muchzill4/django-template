@@ -1,7 +1,7 @@
 .PHONY: bootstrap
 bootstrap:
 	test -f .env || cp .env.example .env
-	pip install -r requirements-dev.txt
+	pip install -r requirements/dev.txt
 	npm --prefix static install
 	docker-compose up -d
 	./manage.py migrate
