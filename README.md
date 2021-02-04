@@ -28,25 +28,25 @@ Simple, extensible [Django](https://www.djangoproject.com) project template.
 
 1. **Init django project using this repo as a template**
 
-```sh
-django-admin startproject --template=https://github.com/muchzill4/django-template/archive/master.zip -e py,yml,md -n .env.example {{ project_name }}
-```
+   ```sh
+   django-admin startproject --template=https://github.com/muchzill4/django-template/archive/master.zip -e py,yml,md -n .env.example {{ project_name }}
+   ```
 
 1. **Boostrap newly initialised project**
 
-Use [virtual environment](https://docs.python.org/3/tutorial/venv.html) to avoid polluting your global python installation.
+   Use [virtual environment](https://docs.python.org/3/tutorial/venv.html) to avoid polluting your global python installation.
 
-```sh
-make boostrap
-```
+   ```sh
+   make boostrap
+   ```
 
-This command will:
+   This command will:
 
-- copy sample dotenv settings to `.env`
-- install development environment requirements for both python and node
-- perform initial database setup
-- initialise a git repo and perform initial commit
-- setup pre-commit hooks
+   - copy sample dotenv settings to `.env`
+   - install development environment requirements for both python and node
+   - perform initial database setup
+   - initialise a git repo and perform initial commit
+   - setup pre-commit hooks
 
 ## Available commands
 
