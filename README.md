@@ -23,6 +23,7 @@ Simple, extensible [Django](https://www.djangoproject.com) project template.
   - [PostCSS](https://postcss.org)
   - [TailwindCSS](http://tailwindcss.com)
 - [Sentry](http://sentry.io)
+- [GitHub Actions](https://docs.github.com/en/actions/learn-github-actions)
 
 ## Starting a new project
 
@@ -47,6 +48,7 @@ Simple, extensible [Django](https://www.djangoproject.com) project template.
    - perform initial database setup
    - initialise a git repo and perform initial commit
    - setup pre-commit hooks
+
 
 ## Available commands
 

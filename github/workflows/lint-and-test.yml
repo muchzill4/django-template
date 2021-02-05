@@ -1,0 +1,53 @@
+name: Lint and test
+
+on:
+  push:
+    branches: [master]
+  pull_request:
+    branches: [master]
+
+jobs:
+  lint-and-test:
+    runs-on: ubuntu-latest
+
+    services:
+      postgres:
+        image: postgres
+        env:
+          POSTGRES_DB: {{ project_name }}
+          POSTGRES_PASSWORD: pass
+          # Set health checks to wait until postgres has started
+          options: >-
+            --health-cmd pg_isready
+            --health-interval 10s
+            --health-timeout 5s
+            --health-retries 5
+        ports:
+          - 5432:5432
+
+    env:
+      SECRET_KEY: "very-secure-test-key"
+      DATABASE_URL: postgresql://postgres:pass@localhost:5432/{{ project_name }}
+
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-python@v2
+        with:
+          python-version: 3.9
+      - name: Cache python dependencies
+        uses: actions/cache@v2
+        with:
+          path: ~/.cache/pip
+          {% verbatim %}
+          key: pip-${{ hashFiles('requirements/*.txt') }}
+          {% endverbatim %}
+          restore-keys: |
+            pip-
+      - name: Install python dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements/dev.txt
+      - name: Check code for formatting and typing errors
+        run: pre-commit run --all-files
+      - name: Test with pytest
+        run: pytest
