@@ -57,7 +57,7 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
-    "{{ project_name }}.apps.Config",
+    "apps.hello_world",
 ]
 if enable_whitenoise:
     INSTALLED_APPS.insert(0, "whitenoise.runserver_nostatic")
@@ -79,7 +79,7 @@ ROOT_URLCONF = "config.urls"
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
-        "DIRS": [],
+        "DIRS": [BASE_DIR / "apps" / "templates"],
         "APP_DIRS": True,
         "OPTIONS": {
             "context_processors": [
@@ -149,7 +149,7 @@ STATICFILES_DIRS = [
 
 STATIC_URL = "/static/"
 
-STATIC_ROOT = BASE_DIR / "collected-static"
+STATIC_ROOT = BASE_DIR / "collected_static"
 
 if enable_whitenoise:
     STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"

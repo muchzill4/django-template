@@ -6,7 +6,7 @@ from django.utils.timezone import now
 def hello_world(request: HttpRequest) -> HttpResponse:
     return render(
         request,
-        "hello-world.html",
+        "hello_world/index.html",
         {
             "now": now(),
         },
