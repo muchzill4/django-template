@@ -6,7 +6,7 @@ bootstrap:
 	docker-compose up -d
 	./manage.py migrate
 	./manage.py createcachetable
-	test -d github && mv github .github
+	(test -d github && mv github .github) || true
 	docker-compose stop
 	git status || (git init && git add . && git commit -m "Initial commit")
 	pre-commit install
