@@ -51,3 +51,4 @@ jobs:
         run: pre-commit run --all-files
       - name: Test with pytest
         run: pytest
+      - uses: pre-commit/action@v2.0.0
