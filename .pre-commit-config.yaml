@@ -11,12 +11,3 @@ repos:
     rev: 5.7.0
     hooks:
       - id: isort
-  - repo: local
-    hooks:
-      - id: pyright
-        name: pyright
-        entry: pyright
-        language: node
-        types: [python]
-        pass_filenames: false
-        additional_dependencies: ["pyright@^1.1.109"]
