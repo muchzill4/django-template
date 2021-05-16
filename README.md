@@ -70,7 +70,7 @@ On MacOS, if you use `homebrew`, the solution is as follows:
 
 ```
 brew install postgresql openssl
-env LDFLAGS="-I/usr/local/opt/openssl/include -L/usr/local/opt/openssl/lib" make boostrap
+env LDFLAGS="-I/usr/local/opt/openssl/include -L/usr/local/opt/openssl/lib" make bootstrap
 ```
 
 ### Running `pytest` complains about missing manifest entries for static assets
