@@ -20,8 +20,10 @@ jobs:
           python -m pip install --upgrade pip
           pip install django==3.1.5
       - name: Run install script
-        run: /bin/bash install.sh test_app .
+        run: |
+          mkdir /tmp/test_app
+          /bin/bash startproject.sh test_app /tmp/test_app .
       - name: Run bootstrap script
         run: |
-          cd test_app
+          cd /tmp/test_app
           make bootstrap
