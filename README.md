@@ -30,7 +30,7 @@ Simple, extensible [Django](https://www.djangoproject.com) project template.
 1. **Init django project using this repo as a template**
 
    ```sh
-   curl https://raw.githubusercontent.com/muchzill4/django-template/tests/startproject.sh | bash -s -- myproject
+   curl https://raw.githubusercontent.com/muchzill4/django-template/master/startproject.sh | bash -s -- myproject
    ```
 
 1. **Boostrap newly initialised project**
