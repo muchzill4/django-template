@@ -4,6 +4,7 @@ bootstrap:
 	pip install -r requirements/dev.txt
 	npm --prefix static install
 	docker-compose up -d
+	timeout 10 sh -c 'until nc -z localhost 5432; do sleep 1; done'
 	./manage.py migrate
 	./manage.py createcachetable
 	(test -d github && mv github .github) || true
