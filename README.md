@@ -75,4 +75,4 @@ env LDFLAGS="-I/usr/local/opt/openssl/include -L/usr/local/opt/openssl/lib" make
 ### Running `pytest` complains about missing manifest entries for static assets
 
 Whitenoise performs additional manifest checks when `DEBUG` is set to `False`. In development, you're probably going to use `DEBUG=True`, however `pytest-django` [forces the flag to be `False`](https://pytest-django.readthedocs.io/en/latest/usage.html#django-debug-mode-change-how-debug-is-set) when `pytest` is run.
-The easiest solution is to simply `./manage.py collectstatic` prior to the test run. Note, that unless additional static files are added and referenced, this is only required to be run once.
+The easiest solution is to simply `make build-assets` prior to the test run. Note, that unless additional static files are added and referenced, this is only required to be run once.
