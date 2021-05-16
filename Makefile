@@ -1,15 +1,17 @@
 .PHONY: bootstrap
 bootstrap:
-	test -f .env || cp .env.example .env
 	pip install -r requirements/dev.txt
-	npm --prefix static install
 	docker-compose up -d
+	timeout 10 sh -c 'until pg_isready --host=localhost; do sleep 1; done'
+	test -f .env || cp .env.example .env
 	./manage.py migrate
 	./manage.py createcachetable
-	(test -d github && mv github .github) || true
 	docker-compose stop
-	git status || (git init && git add . && git commit -m "Initial commit")
-	pre-commit install
+	npm --prefix static install
+	test -d .github || mv github .github
+	git rev-parse --is-inside-work-tree > /dev/null 2>&1 ||\
+		(git init && git add . && git commit -m "Initial commit")
+	! command -v pre-commit > /dev/null 2>&1 || pre-commit install
 
 .PHONY: run-app
 run-app:
