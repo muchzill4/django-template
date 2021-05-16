@@ -12,6 +12,7 @@ bootstrap:
 	git rev-parse --is-inside-work-tree > /dev/null 2>&1 ||\
 		(git init && git add . && git commit -m "Initial commit")
 	! command -v pre-commit > /dev/null 2>&1 || pre-commit install
+	! test -f startproject.sh || rm startproject.sh
 
 .PHONY: run-app
 run-app:

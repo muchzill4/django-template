@@ -30,7 +30,7 @@ Simple, extensible [Django](https://www.djangoproject.com) project template.
 1. **Init django project using this repo as a template**
 
    ```sh
-   django-admin startproject --template=https://github.com/muchzill4/django-template/archive/master.zip -e py,yml,md -n .env.example {{ project_name }}
+   curl https://raw.githubusercontent.com/muchzill4/django-template/tests/startproject.sh | bash -s -- myproject
    ```
 
 1. **Boostrap newly initialised project**
@@ -48,7 +48,6 @@ Simple, extensible [Django](https://www.djangoproject.com) project template.
    - perform initial database setup
    - initialise a git repo and perform initial commit
    - setup pre-commit hooks
-
 
 ## Available commands
 
