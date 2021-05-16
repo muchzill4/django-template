@@ -9,7 +9,7 @@ if [ -z "$name" ]; then
   exit 1
 fi
 
-additional_templates=(.env.example test-and-lint.yml docker-compose.yml)
+additional_templates=(.env.example lint-and-test.yml docker-compose.yml)
 
 django-admin startproject \
   --template=https://github.com/muchzill4/django-template/archive/master.zip \
