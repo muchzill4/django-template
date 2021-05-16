@@ -15,6 +15,7 @@ Simple, extensible [Django](https://www.djangoproject.com) project template.
   - [black](https://black.readthedocs.io)
   - [flake8](https://flake8.pycqa.org/)
   - [isort](https://pycqa.github.io/isort/)
+  - [mypy](http://mypy.readthedocs.io)
 - Static assets pipeline with:
   - [Gulp](http://gulpjs.com)
   - [rollup.js](https://rollupjs.org)
