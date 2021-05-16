@@ -10,7 +10,7 @@ bootstrap:
 	npm --prefix static install
 	(test -d github && mv github .github) || true
 	git status || (git init && git add . && git commit -m "Initial commit")
-	pre-commit install
+	command -v pre-commit && pre-commit install
 
 .PHONY: run-app
 run-app:
