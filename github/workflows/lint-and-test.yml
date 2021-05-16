@@ -38,9 +38,7 @@ jobs:
         uses: actions/cache@v2
         with:
           path: ~/.cache/pip
-          {% verbatim %}
-          key: pip-${{ hashFiles('requirements/*.txt') }}
-          {% endverbatim %}
+          {% verbatim %}key: pip-${{ hashFiles('requirements/*.txt') }}{% endverbatim %}
           restore-keys: |
             pip-
       - name: Install python dependencies
