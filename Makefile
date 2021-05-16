@@ -2,7 +2,7 @@
 bootstrap:
 	pip install -r requirements/dev.txt
 	docker-compose up -d
-	timeout 10 sh -c 'until nc -z localhost 5432; do sleep 1; done'
+	timeout 10 sh -c 'until pg_isready --host=localhost; do sleep 1; done'
 	test -f .env || cp .env.example .env
 	./manage.py migrate
 	./manage.py createcachetable
