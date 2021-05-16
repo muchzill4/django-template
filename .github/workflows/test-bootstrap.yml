@@ -1,0 +1,27 @@
+name: Test bootstrap
+
+on:
+  push:
+    branches: [master]
+  pull_request:
+    branches: [master]
+
+jobs:
+  test-bootstrap:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-python@v2
+        with:
+          python-version: 3.9
+      - name: Install django-admin
+        run: |
+          python -m pip install --upgrade pip
+          pip install django==3.1.5
+      - name: Run install script
+        run: /bin/bash install.sh test_app
+      - name: Run bootstrap script
+        run: |
+          cd test_app
+          make bootstrap
