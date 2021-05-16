@@ -8,9 +8,10 @@ bootstrap:
 	./manage.py createcachetable
 	docker-compose stop
 	npm --prefix static install
-	(test -d github && mv github .github) || true
-	git status || (git init && git add . && git commit -m "Initial commit")
-	command -v pre-commit && pre-commit install
+	test -d .github || mv github .github
+	git rev-parse --is-inside-work-tree > /dev/null 2>&1 ||\
+		(git init && git add . && git commit -m "Initial commit")
+	! command -v pre-commit > /dev/null 2>&1 || pre-commit install
 
 .PHONY: run-app
 run-app:
