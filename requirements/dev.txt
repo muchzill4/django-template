@@ -1,3 +1,4 @@
 -r core.txt
 pytest-django
 pytest
+factory-boy
