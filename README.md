@@ -17,11 +17,8 @@ Simple, extensible [Django](https://www.djangoproject.com) project template.
   - [isort](https://pycqa.github.io/isort/)
   - [mypy](http://mypy.readthedocs.io)
 - Static assets pipeline with:
-  - [Gulp](http://gulpjs.com)
-  - [rollup.js](https://rollupjs.org)
-  - [Unpoly](http://unpoly.com)
-  - [PostCSS](https://postcss.org)
-  - [TailwindCSS](http://tailwindcss.com)
+  - [Vite](https://vitejs.dev/) + [django-vite](https://github.com/MrBin99/django-vite)
+  - [modern-css-reset](https://www.npmjs.com/package/modern-css-reset)
 - [Sentry](http://sentry.io)
 - [GitHub Actions](https://docs.github.com/en/actions/learn-github-actions)
 

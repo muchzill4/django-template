@@ -6,6 +6,6 @@ __pycache__/
 .env
 
 # Static
-static/node_modules/
+node_modules/
 static/dist/
-collected_static/
+static/collected/

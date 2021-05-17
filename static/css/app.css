@@ -1,0 +1,12 @@
+@import "modern-css-reset";
+
+body:before {
+  font-size: 2rem;
+  font-family: monospace;
+  content: "🎉";
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+}

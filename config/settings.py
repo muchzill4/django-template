@@ -29,8 +29,6 @@ def getenv_bool(key: str) -> bool:
 # Whitenoise
 # http://whitenoise.evans.io/en/stable/django.html
 
-enable_whitenoise = getenv_bool("ENABLE_WHITENOISE")
-
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -51,19 +49,19 @@ ALLOWED_HOSTS = ["*"]
 # Application definition
 
 INSTALLED_APPS = [
+    "whitenoise.runserver_nostatic",
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
-    "apps.hello_world",
+    "django_vite",
 ]
-if enable_whitenoise:
-    INSTALLED_APPS.insert(0, "whitenoise.runserver_nostatic")
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
+    "whitenoise.middleware.WhiteNoiseMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.common.CommonMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
@@ -71,15 +69,13 @@ MIDDLEWARE = [
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
 ]
-if enable_whitenoise:
-    MIDDLEWARE.insert(1, "whitenoise.middleware.WhiteNoiseMiddleware")
 
 ROOT_URLCONF = "config.urls"
 
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
-        "DIRS": [BASE_DIR / "apps" / "templates"],
+        "DIRS": [BASE_DIR / "templates"],
         "APP_DIRS": True,
         "OPTIONS": {
             "context_processors": [
@@ -143,17 +139,20 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
+# http://whitenoise.evans.io/en/stable/
+# https://github.com/MrBin99/django-vite
+DJANGO_VITE_DEV_MODE = getenv_bool("DJANGO_VITE_DEV_MODE")
 
-STATICFILES_DIRS = [
-    BASE_DIR / "static" / "dist",
-]
+DJANGO_VITE_ASSETS_PATH = BASE_DIR / "static" / "dist"
+
+STATICFILES_DIRS = [DJANGO_VITE_ASSETS_PATH]
 
 STATIC_URL = "/static/"
 
-STATIC_ROOT = BASE_DIR / "collected_static"
+STATIC_ROOT = BASE_DIR / "static" / "collected"
 
-if enable_whitenoise:
-    STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
+# Manifest is still useful for non-Vite assets
+STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 
 
 # Force https

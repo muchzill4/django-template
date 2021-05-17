@@ -11,7 +11,8 @@ bootstrap:
 	./manage.py migrate
 	./manage.py createcachetable
 	docker-compose stop
-	npm --prefix static install
+	npm install
+	make build-assets
 	! command -v pre-commit > /dev/null 2>&1 || pre-commit install
 
 .PHONY: run-app
@@ -24,9 +25,9 @@ run-services:
 
 .PHONY: build-assets
 build-assets:
-	NODE_ENV=production npm --prefix static run build
+	npm run build
 	./manage.py collectstatic
 
 .PHONY: watch-assets
 watch-assets:
-	npm --prefix static run watch
+	npm run watch

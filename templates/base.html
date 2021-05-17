@@ -1,4 +1,5 @@
 {% load static %}
+{% load django_vite %}
 
 <!doctype html>
 <html lang="en">
@@ -6,12 +7,12 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>🎉</title>
-    <link href="{% static "css/base.css" %}" rel="stylesheet">
+    {% vite_hmr_client %}
+    {% vite_asset 'main.js' %}
+
     {% block head %}{% endblock %}
   </head>
   <body>
     {% block content %}{% endblock %}
-    {% block scripts %}
-    {% endblock %}
   </body>
 </html>

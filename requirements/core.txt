@@ -6,3 +6,4 @@ psycopg2
 python-dotenv
 whitenoise[brotli]
 sentry-sdk
+django-vite
