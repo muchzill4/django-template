@@ -48,8 +48,8 @@ Simple, extensible [Django](https://www.djangoproject.com) project template.
 
 ## Available commands
 
-| command           | wtf                                                      |
-| ----------------- | -------------------------------------------------------- |
+| command          | wtf                                                      |
+| ---------------- | -------------------------------------------------------- |
 | bin/bootstrap    | runs initial setup of the project                        |
 | bin/run-services | brings up Docker stack (out of the box, only PostgreSQL) |
 | bin/run-app      | runs Django server                                       |
