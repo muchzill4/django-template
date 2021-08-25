@@ -1,0 +1,24 @@
+#!/bin/sh
+set -e
+
+project_name=$1
+
+if [ -z "$project_name" ]; then
+  echo "Usage: /bin/bash $(basename $0) project_name"
+  exit 1
+fi
+
+# --template=https://github.com/muchzill4/django-template/archive/master.zip \
+# These are not rendered by default
+django-admin startproject \
+  --template=https://github.com/muchzill4/django-template/archive/master.zip \
+  --name ".env.example,lint-and-test.yml,docker-compose.yml" \
+  $project_name
+
+pushd $project_name
+
+rm startproject
+mv github .github
+git init && git add . && git commit -m "Initial commit"
+
+popd

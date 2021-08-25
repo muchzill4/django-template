@@ -1,0 +1,12 @@
+#!/bin/sh
+set -e
+
+test -f .env || cp .env.example .env
+pip install -r requirements/dev.txt
+docker compose up -d
+timeout 10 sh -c 'until pg_isready --host=localhost; do sleep 1; done'
+./manage.py migrate
+./manage.py createcachetable
+docker compose stop
+pnpm install
+! command -v pre-commit > /dev/null 2>&1 || pre-commit install
