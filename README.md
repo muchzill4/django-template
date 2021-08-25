@@ -27,7 +27,7 @@ Simple, extensible [Django](https://www.djangoproject.com) project template.
 1. **Init django project using this repo as a template**
 
    ```sh
-   curl -fsSL https://raw.githubusercontent.com/muchzill4/django-template/master/startproject | bash -s -- myproject
+   curl -fsSL https://raw.githubusercontent.com/muchzill4/django-template/master/startproject | bash -s -- project_name
    ```
 
 1. **Boostrap newly initialised project**
