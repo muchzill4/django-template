@@ -11,7 +11,7 @@ bootstrap:
 	./manage.py migrate
 	./manage.py createcachetable
 	docker compose stop
-	npm install
+	pnpm install
 	make build-assets
 	! command -v pre-commit > /dev/null 2>&1 || pre-commit install
 
