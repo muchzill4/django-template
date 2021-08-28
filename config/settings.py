@@ -26,10 +26,6 @@ def getenv_bool(key: str) -> bool:
     return os.getenv(key) in ("True", "true")
 
 
-# Whitenoise
-# http://whitenoise.evans.io/en/stable/django.html
-
-
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
