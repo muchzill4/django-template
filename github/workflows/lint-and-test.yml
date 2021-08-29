@@ -64,7 +64,7 @@ jobs:
       - name: Test with pytest
         run: pytest
 
-  check-constraints-up-to-date:
+  check-constraints:
     runs-on: ubuntu-latest
 
     steps:
