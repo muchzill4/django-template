@@ -1,11 +1,13 @@
+const { resolve } = require("path");
+
 export default () => ({
-  root: "static/",
+  root: resolve("./static/src"),
   base: "/static/",
   build: {
     manifest: true,
-    outDir: "dist",
+    outDir: resolve("./static/dist"),
     rollupOptions: {
-      input: "static/main.js",
+      input: resolve("static/src/main.js"),
     },
   },
 });
