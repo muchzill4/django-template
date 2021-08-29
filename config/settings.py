@@ -150,6 +150,9 @@ STATIC_ROOT = BASE_DIR / "static" / "collected"
 # Manifest is still useful for non-Vite assets
 STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 
+# http://whitenoise.evans.io/en/stable/django.html#WHITENOISE_KEEP_ONLY_HASHED_FILES
+WHITENOISE_KEEP_ONLY_HASHED_FILES = True
+
 
 # Force https
 # https://docs.djangoproject.com/en/3.1/ref/settings/#secure-ssl-redirect
