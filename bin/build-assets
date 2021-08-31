@@ -1,5 +1,5 @@
 #!/bin/sh
 set -e
 
-npm run build
-./manage.py collectstatic --no-input
+npm run build -- --emptyOutDir
+./manage.py collectstatic --clear --no-input
